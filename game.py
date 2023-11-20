@@ -1,12 +1,14 @@
 import random
 
 class Rock_paper_scissors:
-    def __init__(self, player_name):
+    """Main class for Rock Paper Scissors game."""
+    def __init__(self, player_name: str):
         self.player_name = player_name
         self.choices = ['rock' ,'paper','scissors']
     
     # get_player_choice
     def get_player_choice(self):
+        """Get player choice randomly from choices : Rock Paper Scissor."""
         player_choice = input(f'Hi {self.player_name} please choice {self.choices}')
         if player_choice in self.choices:
             return player_choice
@@ -17,11 +19,18 @@ class Rock_paper_scissors:
     
     # get_computer_choice
     def get_computer_choice(self):
+        """Get computer choice randomly from choices : Rock Paper Scissor."""
         computer_choice = random.choice(self.choices)
         return computer_choice
 
     # find_winner
-    def find_winner(self, player_choice, computer_choice):
+    def find_winner(self, player_choice: str, computer_choice: str)-> str:
+        """Decide the winner of the game base on user and computer choices.
+
+        :param player_choice: The choice of the user.
+        :param computer_choice: the choice of the computer.
+        :return: The result of the game.
+        """
         if player_choice == computer_choice:
             return " eqoal"
            
@@ -35,6 +44,12 @@ class Rock_paper_scissors:
     
     # def play_game
     def play_game(self):
+        """plat the game.
+        - Get user choice.
+        - Get computer choice.
+        - Decide the winner.
+        - Print the result.
+        """
         user_choice = str(self.get_player_choice().lower())
         print(f'{user_choice}')
         computer_choice = self.get_computer_choice()
